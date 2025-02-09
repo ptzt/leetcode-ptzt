@@ -1,9 +1,14 @@
 var plusOne = function (digits) {
-  let newArr = digits.join("");
-  newArr = (parseInt(newArr) + 1).toString();
+  for (let i = digits.length - 1; i >= 0; i--) {
+    if (digits[i] < 9) {
+      digits[i] += 1;
+      return digits;
+    }
+    digits[i] = 0;
+  }
 
-  const backToArray = newArr.split("").map(Number);
-  return backToArray;
+  digits.unshift(1);
+  return digits;
 };
 
 const digits = [1, 2, 3];
